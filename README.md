@@ -1,8 +1,8 @@
-# VentanaModal
+# VentanaModal 💬
 Chat creado con Vue.js, Firebase y Tailwind
 
 
-## Tecnologías
+## Tecnologías 👨‍💻
 
 Para realizar este proyecto se utilizaron las siguientes tecnologías:
 <br> <br>
