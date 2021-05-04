@@ -21,4 +21,7 @@ Para realizar este proyecto se utilizaron las siguientes tecnologías:
 
 ## Funcionalidades 👨‍💻
 
-![alt text](http://url/to/img.png)
+Los primero que podemos observar al cargar a la aplicación en una ventana con los mensajes que se mandaron anteriormente precargados. Para escribir un mensaje tenemos que hacer click en el botón de "Iniciar Sesión". Nos aparecera una ventana emergente que nos permitirá hacer login con nuestra cuenta de Google.
+
+![captura 1](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss1.png)
+![captura 2](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss2.png)
