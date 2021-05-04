@@ -2,7 +2,7 @@
 
 Chat de simulación de una ventana modal.
 
-Live-demo: https://vuechat-7d278.web.app/
+Demo de la aplicación: https://vuechat-7d278.web.app/
 
 
 ## Tecnologías 🛠️
