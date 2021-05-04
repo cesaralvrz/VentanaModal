@@ -25,3 +25,22 @@ Los primero que podemos observar al cargar a la aplicación en una ventana con l
 
 ![captura 1](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss1.png)
 ![captura 2](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss2.png)
+
+Una vez iniciada la sesión podemos mandar mensajes escribiendolos en el input de "Introduce mensaje..." y luego hacer clikc en "Enviar".
+
+![captura 3](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss3.png)
+
+Los mensajes serán almacenados en una base de datos Firestore de Firebase. Que nos permite modificarlos y eliminarlos si deseamos.
+
+![captura 7](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss7.png)
+
+La aplicación también nos permite adjuntar archivos, para ello hay que hacer click en el botón "Archivo" y nos aparecerá un modal que nos permitirá subir un archivo y cuando este haya cargado podremos darle a aceptar y aparecerá en el chat con las especificaciones del archivo (nombre, tipo, tamaño y la fecha en la que fue añadido).
+
+![captura 4](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss4.png)
+![captura 5](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss5.png)
+![captura 6](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss6.png)
+
+Estos archivos se guardarán en el almacenamiento de nuestra aplicación de Firebase. 
+
+![captura 8](https://github.com/cesaralvrz/VentanaModal/blob/main/assets/ss8.png)
+
