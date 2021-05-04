@@ -12,7 +12,14 @@
         {{ text }}
         <p class="date">{{format_date(createdAt)}}</p>
       </Message>
-      <p> {{name}} </p>
+      <div v-if="name" class="message">
+        <div class="flex flex-row-reverse mr-8">
+          <div class="text w-full bg-gray-800">
+            <p class="text-blue-400"> {{name}} </p>
+            <p class="text-white text-xs">{{type}} ({{size}} MB) - {{time}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -50,6 +57,9 @@ export default {
   data(){
     return{
         name: null,
+        size: null,
+        type: null,
+        time: null,
       }
   },
   setup() {
@@ -86,10 +96,18 @@ export default {
            return moment(String(fecha)).format('hh:mm (DD/MM)')
           }
       },
-      // Método que recibe el emit del componente hijo (UploadFile)
-      fileData(nameFile){
-        console.log(nameFile)
-        this.name = nameFile
+      // Método que recibe los emits del componente hijo (UploadFile)
+      fileData({x, y, z, a}){
+        this.name = x
+        this.type = z
+
+        this.time = a
+        this.time = new Date(this.time)
+        this.time = moment(String(this.time)).format('hh:mm (DD/MM/YYYY)')
+
+        this.size = y
+        this.size = this.size / 1000000
+        this.size = this.size.toFixed(2)
       }
    }
 }

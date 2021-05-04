@@ -15,26 +15,12 @@
             <p>Progreso: {{uploadValue.toFixed()+"%"}}
             <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
         </div>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4" @click="onUpload">Subir</button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 ml-1 content-center" @click="showModal = false">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4" @click="onupload">Subir</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 ml-1 content-center" v-if="uploadValue" @click="showModal = false">
             Aceptar
             </button>
     </div>
     </transition>
-    <!--
-    <div class="container-sm content-center">
-        <img :src="picture">
-        <div>
-            <input type="file" @change="previewImage" accept=".jpg, .pdf, .png, .docx or .doc" >
-        </div>
-        <div>
-            <p>Progress: {{uploadValue.toFixed()+"%"}}
-            <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
-        </div>
-        <div v-if="imageData!=null">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" @click="onUpload">Upload</button>
-        </div>
-    </div>-->
 </template>
 
 <script>
@@ -46,6 +32,9 @@ export default {
 	return{
       fileData: null,
       name: null,
+      size: null,
+      type: null,
+      time: null,
       uploadValue: 0,
       showModal: false,
 	}
@@ -57,8 +46,9 @@ export default {
       this.fileData = event.target.files[0];
     },
 
-    onUpload(){
+    onupload(){
       this.name=null;
+      // Storage de Firebase 
       const storageRef=firebase.storage().ref(`${this.fileData.name}`).put(this.fileData);
       storageRef.on(`state_changed`,snapshot=>{
         this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
@@ -66,11 +56,16 @@ export default {
       ()=>{this.uploadValue=100;
         // Metadata del Archivo
         storageRef.snapshot.ref.getMetadata().then((metadata)=>{
+            
           this.name = metadata.name;
+          this.size = metadata.size;
+          this.type = metadata.contentType;
+          this.time = metadata.timeCreated;
           // Emit al componente padre (chat)
-          this.$emit('passFile', this.name)
+          this.$emit('passFile', {x: this.name, y: this.size, z: this.type, a: this.time})
         });
       }
+
       );
     },
 
@@ -101,8 +96,6 @@ export default {
  max-width: 600px;
  background-color: rgb(255, 255, 255);
  border-radius: 16px;
- border-style: solid;
- border-color: blue;
  
  padding: 25px;
 }
