@@ -1,5 +1,8 @@
 # VentanaModal 💬
-Chat creado con Vue.js, Firebase y Tailwind
+
+Chat de simulación de una ventana modal.
+
+Live-demo: https://vuechat-7d278.web.app/
 
 
 ## Tecnologías 👨‍💻
