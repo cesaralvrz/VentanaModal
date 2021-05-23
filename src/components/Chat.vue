@@ -7,7 +7,7 @@
         :key="id"
         :name="userName"
         :photo-url="userPhotoURL"
-        :sender='userId === user?.uid'
+        :sender=userId === user?.uid
       >
         {{ text }}
         <p class="date">{{format_date(createdAt)}}</p>
